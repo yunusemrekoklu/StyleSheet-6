@@ -1,0 +1,72 @@
+import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+
+
+export default function App() {
+
+
+  const[flag, setFlag]=useState(false);
+###Burada constu true,false değişkeni olarak tanımlıyoruz###
+
+  return (
+
+
+    <View style={styles.box}>
+###view style ı "StyleSheet ten çektik bunun nasıl yapıldığı burdaki kodta gözüküyor"###
+
+
+      <Text style={styles.bold}>Yunus Emre Köklü </Text>
+      <Text style={[styles.bold ,{fontSize: 30,color:"red"}]}>Ferzan Kara</Text>
+
+### Bu iki kodta benzer alltaki kodta Stylesheetten stili çektikten sonra ekstra değişimleri nasıl yapabileceğimizi öğreniyoruz###
+
+
+      <Text style={[styles.bold , {color : flag ? "blue":"white"}]}> Serkan Temizkan </Text>
+
+###Burdada üstte verdiğimiz const değişkenini text ne nasıl uygulayacağımızı görüyoruz aynı zamada true false göre renk değiştirebileceğimizi öğrenmiş olduk###
+
+
+      <Text style={[flag ? styles.class1: styles.class2 , styles.constant]}>
+        {flag ? "True ": "False "}
+</Text>
+
+
+###burada da illa styles.bold diyerek eklememize gerek yok yani iki veya daha fazla değişken olsun diyor isek class açarız sonra bunuda flagdeki true , false a bağlarız ve ne olduğuna göre metnimiz değişir###
+      
+
+
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+
+###alttaki kısım stylesheet yaparak kod yazarken buradan tanımladığımız değişkenlerle fazl akod yazmak ve düzenli olmasını sağladık###
+
+
+  const styles = StyleSheet.create({
+    box:{
+      alignItems:"center",
+      justifyContent:"center",
+      flex: 1,
+      backgroundColor:"black",
+    },
+    bold:{
+      fontWeight:"bold",
+      fontSize: 20,
+      color: "green"
+
+    },
+    class1:{
+      fontSize: 40,
+      color:"orange",
+    },
+    class2:{
+      fontSize: 50,
+      color:"blue",
+    },
+    constant : {
+      textTransform: "uppercase",             ###bütün harfleri büyük yapıyor###
+    },
+});
